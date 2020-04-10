@@ -95,6 +95,11 @@ function init_fail2ban_install() {
     else
         SSH_PORT=${SSH_PORT:-22}
 
+        # Check Directory Fail2Ban and Create if not found
+        if [ ! -d /etc/fail2ban ]; then
+            mkdir -p /etc/faiil2ban
+        fi
+
         # Enable jail
         cat > /etc/fail2ban/jail.local <<_EOL_
 [DEFAULT]
